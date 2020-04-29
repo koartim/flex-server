@@ -5,6 +5,8 @@ namespace :api do
     resources :courses
     post '/login', to: 'auth#create'
     get '/profile', to: 'users#profile'
+    get "/auto_login", to: "auth#auto_login"
+    post "/courses", to: "courses#create"
     end
   end
 end
