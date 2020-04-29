@@ -1,5 +1,4 @@
 class Api::V1::CoursesController < ApplicationController
-skip_before_action :authorized
   def index
       @courses = Course.all
       render json: @courses
@@ -11,7 +10,7 @@ skip_before_action :authorized
   end
 
   def create
-    @course = Course.create(course_params)
+    @course = Course.create!(course_params)
     render json: { course: CourseSerializer.new(@course) }
   end
 
