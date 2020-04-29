@@ -6,6 +6,7 @@ namespace :api do
     post '/login', to: 'auth#create'
     get '/profile', to: 'users#profile'
     get "/auto_login", to: "auth#auto_login"
+    get "/courses/:id", to: "courses#show"
     end
   end
 end
