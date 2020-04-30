@@ -3,6 +3,7 @@ namespace :api do
   namespace :v1 do
     resources :users
     resources :courses
+    resources :subscriptions
     post '/login', to: 'auth#create'
     get '/profile', to: 'users#profile'
     get "/auto_login", to: "auth#auto_login"

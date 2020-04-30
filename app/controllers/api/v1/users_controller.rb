@@ -1,5 +1,5 @@
 class Api::V1::UsersController < ApplicationController
-skip_before_action :authorized, only: [:create]
+
   def index
     @users = User.all
     if @users
@@ -46,6 +46,6 @@ end
 
   private
   def user_params
-    params.require(:user).permit(:username, :password, :bio, :img_url)
+    params.require(:user).permit(:username, :password, :bio, :img_url, :course_id)
   end
 end
