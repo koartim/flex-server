@@ -7,7 +7,7 @@ class Api::V1::SubscriptionsController < ApplicationController
 
   def show
     @subscription = Subscription.find(params[:id])
-    render json: @subscriptions
+    render json: @subscription
   end
 
   def create
@@ -15,10 +15,16 @@ class Api::V1::SubscriptionsController < ApplicationController
     render json: { subscription: SubscriptionSerializer.new(@subscription) }
   end
 
+  def destroy
+    @subscription = Subscription.find_by(params[:id])
+
+    @subscription.delete
+  end
+
   private
 
   def subscription_params
-    params.require(:subscription).permit(:user_id, :course_id, :sub_name, :course_description)
+    params.require(:subscription).permit(:user_id, :course_id, :sub_name, :course_description, :sub_img)
   end
 
 end

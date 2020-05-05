@@ -4,10 +4,11 @@ namespace :api do
     resources :users
     resources :courses
     resources :subscriptions
-    post '/login', to: 'auth#create'
-    get '/profile', to: 'users#profile'
+    post '/login', to: 'auth#login'
     get "/auto_login", to: "auth#auto_login"
     get "/courses/:id", to: "courses#show"
+    delete "/subscriptions/:id", to: "subscriptions#destroy"
+
     end
   end
 end
